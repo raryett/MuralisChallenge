@@ -22,7 +22,7 @@ public interface ClienteService {
     Cliente buscarClienteNome (String nome);
 
     //busca pelo CPF
-    Cliente buscarClienteCPF (String cpf);
+    Cliente buscarClienteCpf (String cpf);
 
 
 

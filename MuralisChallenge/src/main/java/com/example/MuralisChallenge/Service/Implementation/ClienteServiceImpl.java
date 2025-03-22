@@ -45,12 +45,41 @@ public class ClienteServiceImpl implements ClienteService {
 
     }
 
-
-
-
     //exclusao clientes
+    @Override
+    public Cliente excluirCliente(Cliente cliente) {
 
-    //busca pelo nome ou CPF
+        Optional<Cliente> clienteExistente = clienteRepository.findById(cliente.getId());
+        if(clienteExistente.isPresent()){
+            clienteRepository.delete(clienteExistente.get());
+            return clienteExistente.get();
+        }else {
+            throw new RuntimeException("Cliente não encontrado");
+        }
+
+    }
+
+    //busca pelo nome
+    @Override
+    public Cliente buscarClienteNome (String nome){
+        Optional<Cliente> clienteExistente = clienteRepository.buscarPorNome(nome);
+        if(clienteExistente.isPresent()){
+            return clienteExistente.get();
+        }else{
+            throw new RuntimeException("Cliente não encontrado com esse nome" + nome );
+        }
+
+    }
+
+    //busca pelo CPF
+    public Cliente buscarClienteCpf(String cpf){
+    Optional<Cliente> clienteExistente = clienteRepository.buscarPorCpf(cpf);
+    if(clienteExistente.isPresent()){
+        return clienteExistente.get();
+    }else{
+        throw new RuntimeException("Cliente não encontrado com esse cpf" + cpf );
+    }
+    }
 
 
     //ListarClientes
