@@ -20,7 +20,7 @@ public class Contato {
 
     @ManyToOne
     @JoinColumn(name = "cliente_id", nullable = false) // Define a FK corretamente
-    private Cliente cliente_id;
+    private Cliente cliente;
 
     @Column(nullable = false)
     private String tipo;

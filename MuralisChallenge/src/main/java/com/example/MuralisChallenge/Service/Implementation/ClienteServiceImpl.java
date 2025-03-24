@@ -59,27 +59,12 @@ public class ClienteServiceImpl implements ClienteService {
 
     }
 
-    //busca pelo nome
+    //busca nome ou Cpf
     @Override
-    public Cliente buscarClienteNome (String nome){
-        Optional<Cliente> clienteExistente = clienteRepository.buscarPorNome(nome);
-        if(clienteExistente.isPresent()){
-            return clienteExistente.get();
-        }else{
-            throw new RuntimeException("Cliente não encontrado com esse nome" + nome );
-        }
-
+    public List<Cliente> buscarPorNomeOuCpf (String buscaPor){
+        return clienteRepository.buscarPorNomeouCpf(buscaPor);
     }
 
-    //busca pelo CPF
-    public Cliente buscarClienteCpf(String cpf){
-    Optional<Cliente> clienteExistente = clienteRepository.buscarPorCpf(cpf);
-    if(clienteExistente.isPresent()){
-        return clienteExistente.get();
-    }else{
-        throw new RuntimeException("Cliente não encontrado com esse cpf" + cpf );
-    }
-    }
 
 
     //ListarClientes

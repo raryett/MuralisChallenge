@@ -18,11 +18,12 @@ public interface ClienteService {
     //exclusao clientes
     Cliente excluirCliente (Cliente cliente);
 
-    //busca pelo nome
-    Cliente buscarClienteNome (String nome);
+    //busca de cliente por nome ou cpf
 
-    //busca pelo CPF
-    Cliente buscarClienteCpf (String cpf);
+    List<Cliente> buscarPorNomeOuCpf (String buscaPor);
+
+
+
 
 
 
