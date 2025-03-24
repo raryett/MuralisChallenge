@@ -14,35 +14,36 @@ import java.util.Optional;
 @AllArgsConstructor
 public class ContatoServiceImpl implements ContatoService {
 
-    private ContatoRepository contatoRepository ;
-
+    private ContatoRepository contatoRepository;
+    //funcionando
     @Override
     public Contato salvarContato(Contato contato) {
+
         return contatoRepository.save(contato);
     }
-
+    //funcionando
     @Override
     public List<Contato> buscarClientePorId(int clienteId) {
+
         return contatoRepository.buscarClientePorId(clienteId);
     }
-
-
+    //funcionando
     @Override
     public Contato editarContato(int contatoId, Contato novoContato) {
-       Optional<Contato> contatoExistente = contatoRepository.findById(contatoId);
+        Optional<Contato> contatoExistente = contatoRepository.findById(contatoId);
 
-       if(contatoExistente.isPresent()) {
-           Contato contatoEditado = contatoExistente.get();
-           contatoEditado.setTipo(novoContato.getTipo());
-           contatoEditado.setValor(novoContato.getValor());
-           contatoEditado.setObservacao(novoContato.getObservacao());
-           return contatoRepository.save(contatoEditado);
-       }else {
-           throw new RuntimeException("Contato não encontrado");
-       }
+        if (contatoExistente.isPresent()) {
+            Contato contatoEditado = contatoExistente.get();
+            contatoEditado.setTipo(novoContato.getTipo());
+            contatoEditado.setValor(novoContato.getValor());
+            contatoEditado.setObservacao(novoContato.getObservacao());
+            return contatoRepository.save(contatoEditado);
+        } else {
+            throw new RuntimeException("Contato não encontrado");
+        }
 
     }
-
+    //funcionando
     @Override
     public Contato excluirContato(Contato contato) {
         Optional<Contato> contatoEncontrado = contatoRepository.findById(contato.getId());
