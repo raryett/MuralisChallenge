@@ -11,15 +11,15 @@ public interface ContatoService {
     Contato salvarContato (Contato contato);
 
     //Listar
-    List<Contato> listarContatos();
+    List<Contato> buscarClientePorId(int clienteId);
 
     //Edicao dos contatos
-    Contato editarContato (Contato contato);
+    Contato editarContato (int contatoId, Contato novoContato);
 
     //Exclusão
     Contato excluirContato (Contato contato);
 
-    //listagem de todos os contatos de um cliente especifico
+
 
 
 }
