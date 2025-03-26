@@ -139,10 +139,6 @@ Após instalar o Node.js, siga estes passos:
    npm start
 ```
 
-Caso necessário, configure variáveis de ambiente (`.env`) para integração com o backend.
-
----
-
 ### **3. Executando o Projeto**
 
 Para que o sistema funcione corretamente, siga esta ordem:

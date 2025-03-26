@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/cliente")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3004")
 
 public class ClienteController {
 
@@ -21,18 +21,19 @@ public class ClienteController {
     //cadastro Cliente
     //funcionando
     @PostMapping("/salvarCliente")
-    public String addCliente(@RequestBody Cliente cliente) {
+    public ResponseEntity<String> addCliente(@RequestBody Cliente cliente) {
+        System.out.println("Cliente " + cliente);
         clienteService.salvarCliente(cliente);
-        return "Cliente adicionado com sucesso!";
+        return ResponseEntity.ok("Cliente adicionado com sucesso");
     }
 
     //editar clientes
     //funcionando
     @PutMapping("/editarCliente/{id}")
-    public String editarCliente(@PathVariable int id,@RequestBody Cliente cliente) {
+    public ResponseEntity<String> editarCliente(@PathVariable int id,@RequestBody Cliente cliente) {
         cliente.setId(id);
         clienteService.editarCliente(cliente);
-        return "Cliente editado com sucesso!";
+        return  ResponseEntity.ok("Cliente editado com sucesso");
     }
 
 
